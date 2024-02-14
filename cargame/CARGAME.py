@@ -3,6 +3,8 @@ from pygame.locals import *
 import random
 
 pygame.init()
+
+
 my_list = ["sounds/music.mp3", "sounds/music2.mp3", "sounds/music3.mp3"]
 random_element = random.choice(my_list)
 bg_sound = pygame.mixer.Sound(random_element)
@@ -204,7 +206,10 @@ while running:
     # display game over
     if gameover:
         bg_sound.stop()
+        crash_sound = pygame.mixer.Sound("crash/Crash.mp3")
+        crash_sound.play()
         screen.blit(crash, crash_rect)
+
 
         pygame.draw.rect(screen, red, (0, 50, width, 100))
 
